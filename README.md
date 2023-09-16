@@ -1,2 +1,2 @@
 # parisjug-2023
-Java 21 : Add some sparkle to your life
+Java 21 : Add sparkle to your life
