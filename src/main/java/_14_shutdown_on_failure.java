@@ -6,25 +6,25 @@ import java.io.IOException;
 interface _14_shutdown_on_failure {
 
   static void main(String[] args) throws InterruptedException {
-    try (var sts = new StructuredTaskScope.ShutdownOnFailure()) {
-      var task1 = sts.fork(() -> {
+    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+      var task1 = scope.fork(() -> {
         Thread.sleep(100);
         return 100;
       });
-      var task2 = sts.<Integer>fork(() -> {
+      var task2 = scope.<Integer>fork(() -> {
         Thread.sleep(200);
         //throw new IOException();
         return 200;
       });
-      sts.join();
+      scope.join();
 
-      var task3 = sts.fork(() -> {
+      var task3 = scope.fork(() -> {
         Thread.sleep(300);
         return task1.get() + task2.get();
       });
-      sts.join();
+      scope.join();
 
-      sts.throwIfFailed(RuntimeException::new);
+      scope.throwIfFailed(RuntimeException::new);
       System.out.println(task3.get());
     }
   }
