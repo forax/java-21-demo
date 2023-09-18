@@ -1,8 +1,8 @@
-// $JAVA_HOME/bin/java --source 21 --enable-preview src/main/java/_13_structured_concurrency.java
+// $JAVA_HOME/bin/java --source 21 --enable-preview src/main/java/_14_structured_concurrency.java
 
 import java.util.concurrent.StructuredTaskScope;
 
-interface _13_structured_concurrency {
+interface _14_structured_concurrency {
   static void main(String[] args) throws InterruptedException {
     try (var scope = new StructuredTaskScope<Integer>()) {
       var task1 = scope.fork(() -> {

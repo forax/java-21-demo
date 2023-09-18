@@ -19,9 +19,11 @@ It covers
   - STR [_8_str](src/main/java/_8_str.java)
   - FMT [_9_fmt](src/main/java/_9_fmt.java)
   - your own processor [_10_template_processor](src/main/java/_10_template_processor.java)
-- sequenced collection [_11_sequenced_collection](src/main/java/_11_sequenced_collection.java)
-- virtual threads [_12_webserver](src/main/java/_12_webserver.java)
-  - structured concurrency [_13_structured_concurrency](src/main/java/_13_structured_concurrency.java)
-  - shutdown on failure [_14_shutdown_on_failure](src/main/java/_14_shutdown_on_failure.java)
+- sequenced collection
+  - new API [_11_sequenced_collection](src/main/java/_11_sequenced_collection.java)
+  - here be dragons [_12_sequenced_collection_dragon](src/main/java/_12_sequenced_collection_dragon.java)
+- virtual threads [_13_webserver](src/main/java/_13_webserver.java)
+  - structured concurrency [_14_structured_concurrency](src/main/java/_14_structured_concurrency.java)
+  - shutdown on failure [_15_shutdown_on_failure](src/main/java/_15_shutdown_on_failure.java)
 
 

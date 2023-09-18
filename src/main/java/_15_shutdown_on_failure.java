@@ -1,9 +1,8 @@
-// $JAVA_HOME/bin/java --source 21 --enable-preview src/main/java/_14_shutdown_on_failure.java
+// $JAVA_HOME/bin/java --source 21 --enable-preview src/main/java/_15_shutdown_on_failure.java
 
 import java.util.concurrent.StructuredTaskScope;
-import java.io.IOException;
 
-interface _14_shutdown_on_failure {
+interface _15_shutdown_on_failure {
 
   static void main(String[] args) throws InterruptedException {
     try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
