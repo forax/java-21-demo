@@ -2,29 +2,26 @@
 
 import java.util.concurrent.StructuredTaskScope;
 
-interface _15_shutdown_on_failure {
+void main() throws InterruptedException {
+  try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+    var task1 = scope.fork(() -> {
+      Thread.sleep(100);
+      return 100;
+    });
+    var task2 = scope.<Integer>fork(() -> {
+      Thread.sleep(200);
+      //throw new IOException();
+      return 200;
+    });
+    scope.join();
 
-  static void main(String[] args) throws InterruptedException {
-    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-      var task1 = scope.fork(() -> {
-        Thread.sleep(100);
-        return 100;
-      });
-      var task2 = scope.<Integer>fork(() -> {
-        Thread.sleep(200);
-        //throw new IOException();
-        return 200;
-      });
-      scope.join();
+    var task3 = scope.fork(() -> {
+      Thread.sleep(300);
+      return task1.get() + task2.get();
+    });
+    scope.join();
 
-      var task3 = scope.fork(() -> {
-        Thread.sleep(300);
-        return task1.get() + task2.get();
-      });
-      scope.join();
-
-      scope.throwIfFailed(RuntimeException::new);
-      System.out.println(task3.get());
-    }
+    scope.throwIfFailed(RuntimeException::new);
+    System.out.println(task3.get());
   }
 }

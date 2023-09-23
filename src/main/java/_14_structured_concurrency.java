@@ -2,19 +2,17 @@
 
 import java.util.concurrent.StructuredTaskScope;
 
-interface _14_structured_concurrency {
-  static void main(String[] args) throws InterruptedException {
-    try (var scope = new StructuredTaskScope<Integer>()) {
-      var task1 = scope.fork(() -> {
-        Thread.sleep(100);
-        return 100;
-      });
-      var task2 = scope.fork(() -> {
-        Thread.sleep(200);
-        return 200;
-      });
-      scope.join();
-      System.out.println(task1.get() + " " + task2.get());
-    }
+void main() throws InterruptedException {
+  try (var scope = new StructuredTaskScope<Integer>()) {
+    var task1 = scope.fork(() -> {
+      Thread.sleep(100);
+      return 100;
+    });
+    var task2 = scope.fork(() -> {
+      Thread.sleep(200);
+      return 200;
+    });
+    scope.join();
+    System.out.println(task1.get() + " " + task2.get());
   }
 }

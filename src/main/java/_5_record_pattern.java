@@ -2,22 +2,20 @@
 
 import java.util.List;
 
-interface _5_record_pattern {
-
   sealed interface MilitaryUnit { }
   record Soldier(String name, int firepower) implements MilitaryUnit { }
   record Carrier(List<MilitaryUnit> units) implements MilitaryUnit { }
 
-  static int firepower(MilitaryUnit unit) {
+  int firepower(MilitaryUnit unit) {
     return switch (unit) {
       case Soldier(String name, int firepower) -> firepower;
       case Carrier(List<MilitaryUnit> units) -> units.stream()
-          .mapToInt(u -> firepower(u))
+          .mapToInt(this::firepower)
           .sum();
     };
   }
 
-  static void main(String[] args) {
+  void main() {
     var joe = new Soldier("Joe", 200);
     var jane = new Soldier("Jane", 200);
     var carrier = new Carrier(List.of(joe, jane));
@@ -26,4 +24,3 @@ interface _5_record_pattern {
         carrier firepower: %d
         """, firepower(jane), firepower(carrier));
   }
-}
