@@ -1,10 +1,12 @@
-# Paris Java User Group 2023
+# Java 21 Demo
 Java 21 : Add sparkle to your life
 
-Presentation of Java 21 to the Paris JAva User Group (ParisJUG)
+Presentation of Java 21 to
+- the Paris Java User Group (ParisJUG) / September 2023
+  - [Java 21 add sparkle to your life](Java%2021%20add%20sparkle%20to%20your%20life.pdf)
+- the Lilles Java User Group (Chti JUG) / November 2023
+  - [Java 21 add sparkle to your life]()
 
-Slides are here
-- [Java 21 add sparkle to your life](Java%2021%20add%20sparkle%20to%20your%20life.pdf)
 
 It covers
 - unnamed class and instance `main` method [_1_unnamed_class](src/main/java/_1_unnamed_class.java)
