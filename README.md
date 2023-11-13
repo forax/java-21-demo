@@ -5,7 +5,7 @@ Presentations of Java 21 to
 - the Paris Java User Group (ParisJUG) / September 2023
   - [Java 21 add sparkle to your life](presentation/Java%2021%20add%20sparkle%20to%20your%20life%20-%20ParisJug.pdf)
 - the Lilles Java User Group (Chti JUG) / November 2023
-  - [Java 21 add sparkle to your life]()
+  - [Java 21 add sparkle to your life](presentation/Java%2021%20met%20des%20paillettes%20dans%20ta%20vie%20-%20ChtiJug.pdf)
 
 
 It covers
