@@ -2,18 +2,18 @@
 
 import java.util.List;
 
-  sealed interface MilitaryUnit { }
-  record Soldier(String name, int firepower) implements MilitaryUnit { }
-  record Carrier(List<MilitaryUnit> units) implements MilitaryUnit { }
+sealed interface MilitaryUnit { }
+record Soldier(String name, int firepower) implements MilitaryUnit { }
+record Carrier(List<MilitaryUnit> units) implements MilitaryUnit { }
 
-  int firepower(MilitaryUnit unit) {
-    return switch (unit) {
-      case Soldier(String name, int firepower) -> firepower;
-      case Carrier(List<MilitaryUnit> units) -> units.stream()
-          .mapToInt(this::firepower)
-          .sum();
-    };
-  }
+int firepower(MilitaryUnit unit) {
+  return switch (unit) {
+    case Soldier(String name, int firepower) -> firepower;
+    case Carrier(List<MilitaryUnit> units) -> units.stream()
+        .mapToInt(this::firepower)
+        .sum();
+  };
+}
 
   void main() {
     var joe = new Soldier("Joe", 200);
