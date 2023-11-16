@@ -2,6 +2,6 @@
 
 void main() {  // preview
   System.out.println("hello from an instance main !");
-  System.out.println("at runtime, the class name is " + getClass().getName());
+  System.out.println("at runtime, the class name is " + this.getClass().getName());
   System.out.println("class access flags " + getClass().accessFlags());
 }
